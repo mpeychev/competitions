@@ -1,0 +1,318 @@
+**********************************************************************
+                           GOLD PROBLEMS
+**********************************************************************
+                  Six problems numbered 1 through 6
+**********************************************************************
+
+Problem 1: Apple Catching [Hal Burch, 2004]
+
+It is a little known fact that cows love apples.  Farmer John has
+two apple trees (which are conveniently numbered 1 and 2) in his
+field, each full of apples.  Bessie cannot reach the apples when
+they are on the tree, so she must wait for them to fall.  However,
+she must catch them in the air since the apples bruise when they
+hit the ground (and no one wants to eat bruised apples).  Bessie
+is a quick eater, so an apple she does catch is eaten in just a few
+seconds.
+
+Each minute, one of the two apple trees drops an apple. Bessie,
+having much practice, can catch an apple if she is standing under
+a tree from which one falls. While Bessie can walk between the two
+trees quickly (in much less than a minute), she can stand under
+only one tree at any time. Moreover, cows do not get a lot of
+exercise, so she is not willing to walk back and forth between the
+trees endlessly (and thus misses some apples).
+
+Apples fall (one each minute) for T (1 <= T <= 1,000) minutes.
+Bessie is willing to walk back and forth at most W (1 <= W <= 30)
+times. Given which tree will drop an apple each minute, determine
+the maximum number of apples which Bessie can catch.  Bessie starts
+at tree 1.
+
+POINTS: 500
+
+PROBLEM NAME: bcatch
+
+INPUT FORMAT:
+
+* Line 1: Two space separated integers: T and W
+
+* Lines 2..T+1: 1 or 2: the tree that will drop an apple each minute.
+
+SAMPLE INPUT (file bcatch.in):
+
+7 2
+2
+1
+1
+2
+2
+1
+1
+
+INPUT DETAILS:
+
+Seven apples fall - one from tree 2, then two in a row from tree 1, then
+two in a row from tree 2, then two in a row from tree 1. Bessie is 
+willing to walk from one tree to the other twice.
+
+OUTPUT FORMAT:
+
+* Line 1: The maximum number of apples Bessie can catch without
+        walking more than W times.
+
+SAMPLE OUTPUT (file bcatch.out):
+
+6
+
+OUTPUT DETAILS:
+
+Bessie can catch six apples by staying under tree 1 until the first two
+have dropped, then moving to tree 2 for the next two, then returning back
+to tree 1 for the final two.
+
+**********************************************************************
+
+Problem 2: Lake Counting [Hal Burch and Rob Kolstad, 2004]
+
+Due to recent rains, water has pooled in various places in Farmer
+John's field, which is represented by a rectangle of N x M (1 <= N
+<= 100; 1 <= M <= 100) squares. Each square contains either water
+('W') or dry land ('.').  Farmer John would like to figure out how
+many ponds have formed in his field.  A pond is a connected set of
+squares with water in them, where a square is considered adjacent
+to all eight of its neighbors.
+
+Given a diagram of Farmer John's field, determine how many ponds he has.
+
+POINTS: 100
+
+PROBLEM NAME: lkcount
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: N and M
+
+* Lines 2..N+1: M characters per line representing one row of Farmer
+        John's field.  Each character is either 'W' or '.'.  The
+        characters do not have spaces between them.
+
+SAMPLE INPUT (file lkcount.in):
+
+10 12
+W........WW.
+.WWW.....WWW
+....WW...WW.
+.........WW.
+.........W..
+..W......W..
+.W.W.....WW.
+W.W.W.....W.
+.W.W......W.
+..W.......W.
+
+OUTPUT FORMAT:
+
+* Line 1: The number of ponds in Farmer John's field.
+
+SAMPLE OUTPUT (file lkcount.out):
+
+3
+
+OUTPUT DETAILS:
+
+There are three ponds: one in the upper left, one in the lower left,
+and one along the right side.
+
+**********************************************************************
+
+Problem 3: Til the Cows Come Home [Hal Burch, 2004]
+
+Bessie is out in the field and wants to get back to the barn to get
+as much sleep as possible before Farmer John wakes her for the
+morning milking. Bessie needs her beauty sleep, so she wants to get
+back as quickly as possible.
+
+Farmer John's field has N (2 <= N <= 1000) landmarks in it, uniquely
+numbered 1..N. Landmark 1 is the barn; the apple tree grove in which
+Bessie stands all day is landmark N.  Cows travel in the field using
+T (1 <= T <= 2000) bidirectional cow-trails of various lengths
+between the landmarks. Bessie is not confident of her navigation
+ability, so she always stays on a trail from its start to its end
+once she starts it.
+
+Given the trails between the landmarks, determine the minimum
+distance Bessie must walk to get back to the barn.  It is guaranteed
+that some such route exists.
+
+POINTS: 100
+
+PROBLEM NAME: cowhome
+
+INPUT FORMAT:
+
+* Line 1: Two integers: T and N
+
+* Lines 2..T+1: Each line describes a trail as three space-separated
+        integers.  The first two integers are the landmarks between
+        which the trail travels. The third integer is the length of
+        the trail, range 1..100.
+
+SAMPLE INPUT (file cowhome.in):
+
+5 5
+1 2 20
+2 3 30
+3 4 20
+4 5 20
+1 5 100
+
+INPUT DETAILS:
+
+There are five landmarks.
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer, the minimum distance that Bessie must
+        travel to get from landmark N to landmark 1.
+
+SAMPLE OUTPUT (file cowhome.out):
+
+90
+
+OUTPUT DETAILS:
+
+Bessie can get home by following trails 4, 3, 2, and 1.
+
+**********************************************************************
+
+Problem 4: Who's in the Middle [Kolstad, 2004]
+
+FJ is surveying his herd to find the most average cow.  He wants
+to know how much milk this 'median' cow gives: half of the cows
+give as much or more than the median; half give as much or less.
+
+Given an odd number of cows N (1 <= N < 10,000) and their milk output
+(1..1,000,000), find the median amount of milk given such that at least
+half the cows give the same amount of milk or more and at least half give
+the same or less.
+
+POINTS: 50
+
+PROBLEM NAME: middle
+
+INPUT FORMAT:
+
+* Line 1: A single integer N
+
+* Lines 2..N+1: Each line contains a single integer that is the milk
+        output of one cow.
+
+SAMPLE INPUT (file middle.in):
+
+5
+2
+4
+1
+3
+5
+
+INPUT DETAILS:
+
+Five cows with milk outputs of 1..5
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer that is the median milk output.
+
+SAMPLE OUTPUT (file middle.out):
+
+3
+
+OUTPUT DETAILS:
+
+1 and 2 are below 3; 4 and 5 are above 3.
+
+**********************************************************************
+
+Problem 5: Bull Math [kolstad, 2004]
+
+Bulls are so much better at math than the cows. They can multiply
+huge integers together and get perfectly precise answers ... or so
+they say. Farmer John wonders if their answers are correct. Help
+him check the bulls' answers. Read in two positive integers (no
+more than 40 digits each) and compute their product.  Output it as
+a normal number (with no extra leading zeros).
+
+FJ asks that you do this yourself; don't use a special library
+function for the multiplication.
+
+POINTS: 50
+
+PROBLEM NAME: bullmath
+
+INPUT FORMAT:
+
+* Lines 1..2: Each line contains a single decimal number.
+
+SAMPLE INPUT (file bullmath.in):
+
+11111111111111
+1111111111
+
+OUTPUT FORMAT:
+
+* Line 1: The exact product of the two input lines
+
+SAMPLE OUTPUT (file bullmath.out):
+
+12345679011110987654321
+
+**********************************************************************
+
+Problem 6: Bank Interest [Kolstad, 2004]
+
+Farmer John made a profit last year! He would like to invest it
+well but wonders how much money he will make. He knows the interest
+rate R (an integer between 0 and 20) that is compounded annually
+at his bank.  He has an integer amount of money M in the range
+100..1,000,000.  He knows how many years Y (range: 0..400) he intends
+to invest the money in the bank. Help him learn how much money he
+will have in the future by compounding the interest for each year
+he saves.  Print an integer answer without rounding. Answers for the test
+data are guaranteed to fit into a signed 32 bit integer.
+
+POINTS: 50
+
+PROBLEM NAME: bankint
+
+INPUT FORMAT:
+
+* Line 1: Three space-separated integers: R, M, and Y
+
+SAMPLE INPUT (file bankint.in):
+
+5 5000 4
+
+INPUT DETAILS:
+
+5% annual interest, 5000 money, 4 years
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer that is the number of dollars FJ will have
+        after Y years.
+
+SAMPLE OUTPUT (file bankint.out):
+
+6077
+
+OUTPUT DETAILS:
+
+Year 1: 1.05 * 5000 = 5250
+Year 2: 1.05 * 5250 = 5512.5
+Year 3: 1.05 * 5512.50 = 5788.125
+Year 4: 1.05 * 5788.125 = 6077.53125
+The integer part of 6077.53125 is 6077.
+
+**********************************************************************

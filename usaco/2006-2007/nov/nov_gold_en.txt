@@ -1,0 +1,184 @@
+**********************************************************************
+                           GOLD PROBLEMS
+**********************************************************************
+                  Three problems numbered 1 through 3
+**********************************************************************
+
+Problem 1: Fence Repair [Richard Ho, 2006]
+
+Farmer John wants to repair a small length of the fence around the
+pasture. He measures the fence and finds that he needs N (1 <= N
+<= 20,000) planks of wood, each having some integer length Li (1
+<= Li <= 50,000) units. He then purchases a single long board just
+long enough to saw into the N planks (i.e., whose length is the sum
+of the lengths Li). FJ is ignoring the "kerf", the extra length
+lost to sawdust when a sawcut is made; you should ignore it, too.
+
+FJ sadly realizes that he doesn't own a saw with which to cut the
+wood, so he mosies over to Farmer Don's Farm with this long board
+and politely asks if he may borrow a saw.
+
+Farmer Don, a closet capitalist, doesn't lend FJ a saw but instead
+offers to charge Farmer John for each of the N-1 cuts in the plank.
+The charge to cut a piece of wood is exactly equal to its length.
+Cutting a plank of length 21 costs 21 cents.
+
+Farmer Don then lets Farmer John decide the order and locations to
+cut the plank. Help Farmer John determine the minimum amount of
+money he can spend to create the N planks. FJ knows that he can cut
+the board in various different orders which will result in different
+charges since the resulting intermediate planks are of different
+lengths.
+
+PROBLEM NAME: plank
+
+INPUT FORMAT:
+
+* Line 1: One integer N, the number of planks
+
+* Lines 2..N+1: Each line contains a single integer describing the
+        length of a needed plank
+
+SAMPLE INPUT (file plank.in):
+
+3
+8
+5
+8
+
+
+INPUT DETAILS:
+
+He wants to cut a board of length 21 into pieces of lengths 8, 5,
+and 8.
+
+OUTPUT FORMAT:
+
+* Line 1: One integer: the minimum amount of money he must spend to
+        make N-1 cuts
+
+SAMPLE OUTPUT (file plank.out):
+
+34
+
+OUTPUT DETAILS:
+
+The original board measures 8+5+8=21. The first cut will cost 21, and
+should be used to cut the board into pieces measuring 13 and 8. The
+second cut will cost 13, and should be used to cut the 13 into 8
+and 5. This would cost 21+13=34. If the 21 was cut into 16 and 5
+instead, the second cut would cost 16 for a total of 37 (which is
+more than 34).
+
+**********************************************************************
+
+Problem 2: Corn Fields [Richard Ho, 2006]
+
+Farmer John has purchased a lush new rectangular pasture composed
+of M by N (1 <= M <= 12; 1 <= N <= 12) square parcels. He wants to
+grow some yummy corn for the cows on a number of squares. Regrettably,
+some of the squares are infertile and can't be planted. Canny FJ
+knows that the cows dislike eating close to each other, so when
+choosing which squares to plant, he avoids choosing squares that
+are adjacent; no two chosen squares share an edge. He has not yet
+made the final choice as to which squares to plant.
+
+Being a very open-minded man, Farmer John wants to consider all
+possible options for how to choose the squares for planting. He is
+so open-minded that he considers choosing no squares as a valid
+option!  Please help Farmer John determine the number of ways he
+can choose the squares to plant.
+
+PROBLEM NAME: cowfood
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: M and N
+
+* Lines 2..M+1: Line i+1 describes row i of the pasture with N
+        space-separated integers indicating whether a square is
+        fertile (1 for fertile, 0  for infertile)
+
+SAMPLE INPUT (file cowfood.in):
+
+2 3
+1 1 1
+0 1 0
+
+
+OUTPUT FORMAT:
+
+* Line 1: One integer: the number of ways that FJ can choose the
+        squares modulo 100,000,000.
+
+SAMPLE OUTPUT (file cowfood.out):
+
+9
+
+OUTPUT DETAILS:
+
+Number the squares as follows:
+
+1 2 3
+  4
+
+There are four ways to plant only on one squares (1, 2, 3, or 4),
+three ways to plant on two squares (13, 14, or 34), 1 way to plant
+on three squares (134), and one way to plant on no squares. 4+3+1+1=9.
+
+**********************************************************************
+
+Problem 3: Roadblocks [Mirek Michalski, 2004]
+
+Bessie has moved to a small farm and sometimes enjoys returning to
+visit one of her best friends. She does not want to get to her old
+home too quickly, because she likes the scenery along the way. She
+has decided to take the second-shortest rather than the shortest
+path. She knows there must be some second-shortest path.
+
+The countryside consists of R (1 <= R <= 100,000) bidirectional
+roads, each linking two of the N (1 <= N <= 5000) intersections,
+conveniently numbered 1..N. Bessie starts at intersection 1, and
+her friend (the destination) is at intersection N.
+
+The second-shortest path may share roads with any of the shortest
+paths, and it may backtrack i.e., use the same road or intersection
+more than once. The second-shortest path is the shortest path whose
+length is longer than the shortest path(s) (i.e., if two or more
+shortest paths exist, the second-shortest path is the one whose
+length is longer than those but no longer than any other path).
+
+PROBLEM NAME: block
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: N and R
+
+* Lines 2..R+1: Each line contains three space-separated integers: A,
+        B, and D that describe a road that connects intersections A
+        and B and has length D (1 <= D <= 5000)
+
+SAMPLE INPUT (file block.in):
+
+4 4
+1 2 100
+2 4 200
+2 3 250
+3 4 100
+
+
+OUTPUT FORMAT:
+
+* Line 1: The length of the second shortest path between node 1 and
+        node N
+
+SAMPLE OUTPUT (file block.out):
+
+450
+
+OUTPUT DETAILS:
+
+Two routes: 1 -> 2 -> 4 (length 100+200=300) and 1 -> 2 -> 3 -> 4
+(length 100+250+100=450)
+
+**********************************************************************

@@ -1,0 +1,259 @@
+Problem 1: Balanced Cow Breeds [Brian Dean, 2012]
+
+Farmer John usually brands his cows with a circular mark, but his branding
+iron is broken, so he instead must settle for branding each cow with a mark
+in the shape of a parenthesis -- (.  He has two breeds of cows on his farm:
+Holsteins and Guernseys.  He brands each of his cows with a
+parenthesis-shaped mark.  Depending on which direction the cow is facing,
+this might look like either a left parenthesis or a right parenthesis.
+
+FJ's N cows are all standing in a row, each facing an arbitrary direction,
+so the marks on the cows look like a string of parentheses of length N. 
+Looking at this lineup, FJ sees a remarkable pattern: if he scans from left
+to right through just the Holsteins (in the order they appear in the
+sequence), this gives a balanced string of parentheses; moreover, the same
+is true for the Guernseys!  To see if this is truly a rare event, please
+help FJ compute the number of possible ways he could assign breeds to his N
+cows so that this property holds.  
+
+There are several ways to define what it means for a string of parentheses
+to be "balanced".  Perhaps the simplest definition is that there must be
+the same total number of ('s and )'s, and for any prefix of the string,
+there must be at least as many ('s as )'s.  For example, the following
+strings are all balanced:
+
+()
+(())
+()(()())
+
+while these are not:
+
+)(
+())(
+((())))
+
+PROBLEM NAME: bbreeds
+
+INPUT FORMAT:
+
+* Line 1: A string of parentheses of length N (1 <= N <= 1000).
+
+SAMPLE INPUT (file bbreeds.in):
+
+(())
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer, specifying the number of ways FJ can
+        assign breeds to cows so that the Holsteins form a balanced
+        subsequence of parentheses, and likewise for the Guernseys. 
+        Since the answer might be a very large number, please print
+        the remainder of this number when divided by 2012 (i.e., print
+        the number mod 2012).  Breed assignments involving only one
+        breed type are valid.
+
+SAMPLE OUTPUT (file bbreeds.out):
+
+6
+
+OUTPUT DETAILS:
+
+The following breed assignments work:
+
+(())
+HHHH
+
+(())
+GGGG
+
+(())
+HGGH
+
+(())
+GHHG
+
+(())
+HGHG
+
+(())
+GHGH
+
+
+
+Problem 2: Concurrently Balanced Strings [Brian Dean, 2012]
+
+Farmer John's cows are all of a very peculiar breed known for its
+distinctive appearance -- each cow is marked with a giant spot on its hide
+in the shape of a parenthesis (depending on the direction the cow is
+facing, this could look like either a left or a right parenthesis).
+
+One morning, Farmer John arranges his cows into K lines each of N cows 
+(1 <= K <= 10, 1 <= N <= 50,000).  The cows are facing rather arbitrary
+directions, so this lineup can be described by K length-N strings of
+parentheses S_1,..., S_k.  Farmer John notes with great excitement that
+some ranges of his cows are "concurrently balanced", where a range i...j of
+cows is concurrently balanced only if each of the strings S_1,..., S_k is
+balanced in that range (we define what it means for a single string of
+parentheses to be balanced below). For instance, if K = 3, and we have
+
+S_1 = )()((())))(())
+S_2 = ()(()()()((())
+S_3 = )))(()()))(())
+                1111
+      01234567890123
+
+Then the range [3...8] is concurrently balanced because S_1[3...8] =
+((())), S_2[3...8] = ()()(), and S_3[3...8] = (()()). The ranges [10...13]
+and [11...12] are also concurrently balanced.
+
+Given K length-N strings of parentheses, help Farmer John count the number
+of pairs (i,j) such that the range i...j is concurrently balanced.
+
+There are several ways to define what it means for a single string of
+parentheses to be "balanced".  Perhaps the simplest definition is that
+there must be the same total number of ('s and )'s, and for any prefix of
+the string, there must be at least as many ('s as )'s.  For example, the
+following strings are all balanced:
+
+()
+(())
+()(()())
+
+while these are not:
+
+)(
+())(
+((())))
+
+PROBLEM NAME: cbs
+
+INPUT FORMAT:
+
+* Line 1: Two integers, K and N.
+
+* Lines 2..K+1: Each line contains a length-N string of parentheses.
+
+SAMPLE INPUT (file cbs.in):
+
+3 14
+)()((())))(())
+()(()()()((())
+)))(()()))(())
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer, the number of concurrently balanced
+        ranges.
+
+SAMPLE OUTPUT (file cbs.out):
+
+3
+
+
+
+Problem 3: Balanced Trees [Brian Dean, 2012]
+
+Fascinated by his experience with balanced parentheses so far, Farmer John
+is curious if you can help him solve one final problem.  As it turns out,
+FJ's farm is in the shape of a giant tree of N pastures (1 <= N <=
+40,000), each of which he has labeled with either ( or ).  For example:
+
+'('--'('--')'--'('--')'
+ |         |
+')'       ')'--'('--'(' 
+ |              |
+')'            '('--')'--')'--')'--'('
+
+Recall that since his farm is a tree, this means that certain pairs of
+pastures are connected by corridors so that there is one unique path
+between any given pair of pastures.  FJ believes that some of these paths
+represent balanced strings of parentheses.  In particular, he would like to
+know, among all such balanced strings represented by paths through the
+tree, what is the maximum nesting depth one can find.  The nesting depth of
+a balanced string of parentheses is the maximum, over all prefixes of the
+string, of the excess number of ('s within the prefix.  For example, the string
+()()() has nesting depth 1, but the string ((()))() has nesting depth 3, as
+we can see clearly if we count excess ('s for every prefix of the string:
+
+((()))()
+12321010
+
+For the example farm above, the deepest string is ((())) with a depth of 3,
+and can be obtained by taking the path from A to B below:
+
+'('--'('--')'--'('--')'
+ |         |
+')'       ')'--'('--'(' < A
+ |              |
+')'            '('--')'--')'--')'--'('
+ ^C                            ^B
+
+Note that this is different than the longest balanced string; for instance
+(())(()), starting at A and ending at C, has length 8.
+
+Your task is to output the nesting depth of the deepest balanced path in
+the tree.
+
+PROBLEM NAME: btree
+
+INPUT FORMAT:
+
+* Line 1: A single integer N, the number of nodes in the tree.
+
+* Lines 2..N: Line i+1: A single integer p_(i+1) (1 <= p_(i+1) <= i),
+        denoting an edge between nodes i+1 and p_{i+1} in the tree.
+
+* Lines N+1..2N: Line N+i: Either ( or ), the label of node i.
+
+SAMPLE INPUT (file btree.in):
+
+15
+1
+2
+1
+4
+4
+6
+7
+5
+9
+9
+11
+12
+13
+14
+(
+)
+)
+(
+)
+)
+(
+)
+(
+(
+(
+)
+)
+)
+(
+
+INPUT DETAILS:
+
+This is the example from the problem description, with the following node
+labels:
+
+1'('--4'('--6')'--7'('--8')'
+  |     |
+2')'  5')'--9'('--10'('
+  |           |
+3')'       11'('--12')'--13')'--14')'--15'('
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer, giving the maximum nesting depth of a
+        balanced path.
+
+SAMPLE OUTPUT (file btree.out):
+
+3

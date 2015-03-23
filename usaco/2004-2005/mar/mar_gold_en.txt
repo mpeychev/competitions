@@ -1,0 +1,181 @@
+**********************************************************************
+                           GOLD PROBLEMS
+**********************************************************************
+                  Three problems numbered 1 through 3
+**********************************************************************
+
+Problem 1: Ombrophobic Bovines [Hal Burch, 2004]
+
+FJ's cows really hate getting wet so much that the mere thought of
+getting caught in the rain makes them shake in their hooves.  They
+have decided to put a rain siren on the farm to let them know when
+rain is approaching. They intend to create a rain evacuation plan
+so that all the cows can get to shelter before the rain begins.
+Weather forecasting is not always correct, though. In order to
+minimize false alarms, they want to sound the siren as late as
+possible while still giving enough time for all the cows to get to
+some shelter.
+
+The farm has F (1 <= F <= 200) fields on which the cows graze.  A
+set of P (1 <= P <= 1500) paths connects them. The paths are wide,
+so that any number of cows can traverse a path in either direction.
+
+Some of the farm's fields have rain shelters under which the cows
+can shield themselves. These shelters are of limited size, so a
+single shelter might not be able to hold all the cows.  Fields are
+small compared to the paths and require no time for cows to traverse.
+
+Compute the minimum amount of time before rain starts that the siren
+must be sounded so that every cow can get to some shelter.
+
+PROBLEM NAME: ombro
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: F and P
+
+* Lines 2..F+1: Two space-separated integers that describe a field. 
+        The first integer (range: 0..1000) is the number of cows in
+        that field.  The second integer (range: 0..1000) is the number
+        of cows the shelter in that field can hold.  Line i+1
+        describes field i.
+
+* Lines F+2..F+P+1: Three space-separated integers that describe a
+        path. The first and second integers (both range 1..F) tell the
+        fields connected by the path. The third integer (range:
+        1..1,000,000,000) is how long any cow takes to traverse it.
+
+SAMPLE INPUT (file ombro.in):
+
+3 4
+7 2
+0 4
+2 6
+1 2 40
+3 2 70
+2 3 90
+1 3 120
+
+OUTPUT FORMAT:
+
+* Line 1: The minimum amount of time required for all cows to get
+        under a shelter, presuming they plan their routes optimally. 
+        If it not possible for the all the cows to get under a
+        shelter, output "-1".
+
+SAMPLE OUTPUT (file ombro.out):
+
+110
+
+OUTPUT DETAILS:
+
+In 110 time units, two cows from field 1 can get under the shelter in that
+field, four cows from field 1 can get under the shelter in field 2, and one
+cow can get to field 3 and join the cows from that field under the
+shelter in field 3.  Although there are other plans that will get all the
+cows under a shelter, none will do it in fewer than 110 time units.
+
+**********************************************************************
+
+Problem 2: Space Elevator [Coaches , 2004]
+
+The cows are going to space!  They plan to achieve orbit by building
+a sort of space elevator: a giant tower of blocks.  They have K (1
+<= K <= 400) different types of blocks with which to build the
+tower.  Each block of type i has height h_i (1 <= h_i <= 100) and
+is available in quantity c_i (1 <= c_i <= 10).  Due to possible
+damage caused by cosmic rays, no part of a block of type i can
+exceed a maximum altitude a_i (1 <= a_i <= 40000).
+
+Help the cows build the tallest space elevator possible by stacking
+blocks on top of each other according to the rules.
+
+PROBLEM NAME: elevator
+
+INPUT FORMAT:
+
+* Line 1: A single integer, K
+
+* Lines 2..K+1: Each line contains three space-separated integers: 
+        h_i, a_i, and c_i. Line i+1 describes block type i.
+
+SAMPLE INPUT (file elevator.in):
+
+3
+7 40 3
+5 23 8
+2 52 6
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer H, the maximum height of a tower that can
+        be built
+
+SAMPLE OUTPUT (file elevator.out):
+
+48
+
+OUTPUT DETAILS:
+
+From the bottom: 3 blocks of type 2, below 3 of type 1, below 6 of
+type 3.  Stacking 4 blocks of type 2 and 3 of type 1 is not legal,
+since the top of the last type 1 block would exceed height 40.
+
+**********************************************************************
+
+Problem 3: Yogurt factory [Tiankai Liu, 2004]
+
+The cows have purchased a yogurt factory that makes world-famous
+Yucky Yogurt. Over the next N (1 <= N <= 10,000) weeks, the price
+of milk and labor will fluctuate weekly such that it will cost the
+company C_i (1 <= C_i <= 5,000) cents to produce one unit of yogurt
+in week i.  Yucky's factory, being well-designed, can produce arbitrarily
+many units of yogurt each week.
+
+Yucky Yogurt owns a warehouse that can store unused yogurt at a
+constant fee of S (1 <= S <= 100) cents per unit of yogurt per week.
+Fortuitously, yogurt does not spoil.  Yucky Yogurt's warehouse is enormous,
+so it can hold arbitrarily many units of yogurt.
+
+Yucky wants to find a way to make weekly deliveries of Y_i (0 <=
+Y_i <= 10,000) units of yogurt to its clientele (Y_i is the delivery
+quantity in week i). Help Yucky minimize its costs over the entire
+N-week period. Yogurt produced in week i, as well as any yogurt
+already in storage, can be used to meet Yucky's demand for that
+week.
+
+PROBLEM NAME: yogfac
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers, N and S.
+
+* Lines 2..N+1: Line i+1 contains two space-separated integers: C_i
+        and Y_i.
+
+SAMPLE INPUT (file yogfac.in):
+
+4 5
+88 200
+89 400
+97 300
+91 500
+
+OUTPUT FORMAT:
+
+* Line 1: Line 1 contains a single integer: the minimum total cost to
+        satisfy the yogurt schedule.  Note that the total might be too
+        large for a 32-bit integer.
+
+SAMPLE OUTPUT (file yogfac.out):
+
+126900
+
+OUTPUT DETAILS:
+
+In week 1, produce 200 units of yogurt and deliver all of it. In
+week 2, produce 700 units: deliver 400 units while storing 300
+units. In week 3, deliver the 300 units that were stored. In week
+4, produce and deliver 500 units.
+
+**********************************************************************

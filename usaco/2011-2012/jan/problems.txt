@@ -1,0 +1,187 @@
+Problem 1: Video Game Combos [Neal Wu, 2012]
+
+Bessie is playing a video game! In the game, the three letters 'A', 'B',
+and 'C' are the only valid buttons. Bessie may press the buttons in any
+order she likes; however, there are only N distinct combos possible (1 <= N
+<= 20). Combo i is represented as a string S_i which has a length between 1
+and 15 and contains only the letters 'A', 'B', and 'C'.
+
+Whenever Bessie presses a combination of letters that matches with a combo,
+she gets one point for the combo. Combos may overlap with each other or
+even finish at the same time! For example if N = 3 and the three possible
+combos are "ABA", "CB", and "ABACB", and Bessie presses "ABACB", she will
+end with 3 points. Bessie may score points for a single combo more than once.
+
+Bessie of course wants to earn points as quickly as possible. If she
+presses exactly K buttons (1 <= K <= 1,000), what is the maximum number of
+points she can earn?
+
+PROBLEM NAME: combos
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: N and K.
+
+* Lines 2..N+1: Line i+1 contains only the string S_i, representing
+        combo i.
+
+SAMPLE INPUT (file combos.in):
+
+3 7
+ABA
+CB
+ABACB
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer, the maximum number of points Bessie can
+        obtain.
+
+SAMPLE OUTPUT (file combos.out):
+
+4
+
+OUTPUT DETAILS:
+
+The optimal sequence of buttons in this case is ABACBCB, which gives 4
+points--1 from ABA, 1 from ABACB, and 2 from CB.
+
+
+
+Problem 2: Cow Run [Mark Gordon, 2011]
+
+Farmer John and Bessie have devised a new exercise game for the cows.  The
+cows are running on a circular track of length M (2 <= M <= 1,000,000,000)
+starting from the same position.  The game proceeds in N (1 <= N <= 14)
+rounds using a deck of 8N cards each with a number X_i (0 <= X_i < M)
+written on it.
+
+Each round FJ moves the top 8 cards into a separate pile and selects either
+the top 4 or bottom 4 cards for Bessie to play with.  Bessie then chooses
+either the top 2 cards or bottom 2 cards of the 4 cards FJ selected.  After
+this FJ calls out the number on the top card, X_top, and the cows run a
+distance of R * X_top, where R is the total distance the cows have run so
+far.  Bessie then calls out the number on the bottom card, X_bottom, and the
+cows run a distance of X_bottom.
+
+FJ is concerned that after the exercise the cows will be too tired to get
+back to the beginning of the track if they end up too far away.  He
+believes if the cows end up more than a distance of K (0 <= K <=
+floor(M/2)) from their starting position they won't be able to get back
+home.  
+
+It is guaranteed that if FJ plays correctly, he will always be able to 
+ensure the cows can come home, irrespective of the moves made by Bessie!
+For each round, your task is to determine which half of the cards FJ should
+choose such that no matter what Bessie does from that point on, FJ can
+always get the cows home.  Bessie will then make the move provided in the
+input and you can then continue onto the next round.  Note that even though
+Bessie's moves are provided to you in the input, you are to specify moves
+for FJ that would have worked no matter what Bessie chooses (so it is
+effectively as if FJ does not really know what Bessie will do during her
+moves).
+
+PROBLEM NAME: cowrun
+
+INPUT FORMAT:
+
+* Line 1: Three space-separated integers N, M, K
+
+* Line 2: A string N characters.  If the ith character is 'T' it means
+        Bessie will select the top 2 cards in the ith round.  Otherwise
+        the ith character will be 'B' to indicate Bessie will select
+        the bottom 2 cards in the ith round.
+
+* Lines 3..2+N: Each line contains eight integers representing the 8
+        cards to be used that round from top to bottom.
+
+SAMPLE INPUT (file cowrun.in):
+
+2 2 0
+TT
+1 0 0 0 0 0 0 1
+0 1 1 1 0 0 1 0
+
+OUTPUT FORMAT:
+
+* Line 1: A string of N characters where the ith character is 'T' if
+        FJ should choose the top 4 cards or 'B' if FJ should choose
+        the bottom 4 cards in the ith round.  If there are multiple
+        ways to get the cows home, choose the lexicographically first
+        (that is, the string that is alphabetically smallest).
+
+SAMPLE OUTPUT (file cowrun.out):
+
+TB
+
+OUTPUT DETAILS:
+
+The cows must end up exactly where they started to be able to come home.  
+Note that FJ is not aware of what choices Bessie is going to make
+beforehand.  If FJ did know, he could have chosen the bottom half each time.
+
+
+
+Problem 3: Bovine Alliance [Mark Gordon, 2011]
+
+Bessie and her bovine pals from nearby farms have finally decided that they
+are going to start connecting their farms together by trails in an effort
+to form an alliance against the farmers.  The cows in each of the N (1 <= N
+<= 100,000) farms were initially instructed to build a trail to exactly one
+other farm, for a total of N trails.  However months into the project only
+M (1 <= M < N) of these trails had actually been built.
+
+Arguments between the farms over which farms already built a trail now
+threaten to split apart the cow alliance.  To ease tension, Bessie wishes
+to calculate how many ways the M trails that exist so far could have been
+built.  For example, if there is a trail connecting farms 3 and 4, then one
+possibility is that farm 3 built the trail, and the other possibility is
+that farm 4 built the trail.  Help Bessie by calculating the number of
+different assignments of trails to the farms that built them, modulo
+1,000,000,007.  Two assignments are considered different if there is at
+least one trail built by a different farm in each assignment.
+
+PROBLEM NAME: alliance
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers N and M
+
+* Lines 2..1+M: Line i+1 describes the ith trail.  Each line contains
+        two space-separated integers u_i and v_i (1 <= u_i, v_i <= N,
+        u_i != v_i) describing the pair of farms connected by the
+        trail.
+
+SAMPLE INPUT (file alliance.in):
+
+5 4
+1 2
+3 2
+4 5
+4 5
+
+INPUT DETAILS:
+
+Note that there can be two trails between the same pair of farms.
+
+OUTPUT FORMAT:
+
+* Line 1: A single line containing the number of assignments of trails
+        to farms, taken modulo 1,000,000,007.  If no assignment
+        satisfies the above conditions output 0.
+
+SAMPLE OUTPUT (file alliance.out):
+
+6
+
+OUTPUT DETAILS:
+
+There are 6 possible assignments.  Letting {a,b,c,d} mean that farm 1
+builds trail a, farm 2 builds trail b, farm 3 builds trail c, and farm 4
+builds trail d, the assignments are:
+{2, 3, 4, 5}
+{2, 3, 5, 4}
+{1, 3, 4, 5}
+{1, 3, 5, 4}
+{1, 2, 4, 5}
+{1, 2, 5, 4}

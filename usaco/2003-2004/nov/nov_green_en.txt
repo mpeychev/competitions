@@ -1,0 +1,210 @@
+**********************************************************************
+                           GREEN PROBLEMS
+**********************************************************************
+                  Four problems numbered 1 through 4
+**********************************************************************
+
+PROBLEM 1: Cow Exhibition [Brian Jacokes, 2003]
+
+"Fat and docile, big and dumb, they look so stupid, they aren't much 
+fun..."
+- Cows with Guns by Dana Lyons
+
+The cows want to prove to the public that they are both smart and fun.  
+In order to do this, Bessie has organized an exhibition that will be put 
+on by the cows. She has given each of the N (1 <= N <= 100) cows a 
+thorough interview and determined two values for each cow: the smartness 
+Si (-1000 <= Si <= 1000) of the cow and the funness Fi (-1000 <= Fi <= 
+1000) of the cow.
+
+Bessie must choose which cows she wants to bring to her exhibition. She 
+believes that the total smartness TS of the group is the sum of the Si's 
+and, likewise, the total funness TF of the group is the sum of the Fi's.  
+Bessie wants to maximize the sum of TS and TF, but she also wants both of 
+these values to be non-negative (since she must also show that the cows 
+are well-rounded; a negative TS or TF would ruin this).  Help Bessie 
+maximize the sum of TS and TF without letting either of these values 
+become negative.
+
+PROBLEM NAME: smrtfun
+
+INPUT FORMAT:
+
+* Line 1: A single integer N, the number of cows
+
+* Lines 2..N+1: Two space-separated integers Si and Fi, respectively
+        the smartness and  funness for each cow.
+
+SAMPLE INPUT (file smrtfun.in):
+
+5
+-5 7
+8 -6
+6 -3
+2 1
+-8 -5
+
+OUTPUT FORMAT:
+
+* Line 1: One integer: the optimal sum of TS and TF such that both TS
+        and TF are  non-negative.  If no subset of the cows has
+        non-negative TS and non- negative TF, print 0.
+
+SAMPLE OUTPUT (file smrtfun.out):
+
+8
+
+OUTPUT DETAILS:
+
+Bessie chooses cows 1, 3, and 4, giving values of TS = -5+6+2 = 3 and TF 
+= 7-3+1 = 5, so 3+5 = 8.  Note that adding cow 2 would improve the value 
+of TS+TF to 10, but the new value of TF would be negative, so it is not 
+allowed.
+
+
+**********************************************************************
+
+PROBLEM 2: Milking Grid [Tom Widland, 2003]
+
+Every morning when they are milked, the Farmer John's cows form a
+rectangular grid that is R (1 <= R <= 10,000) rows by C (1 <= C <=
+75) columns. As we all know, Farmer John is quite the expert on cow
+behavior, and is currently writing a book about feeding behavior in
+cows.  He notices that if each cow is labeled with an uppercase letter
+indicating its breed, the two-dimensional pattern formed by his cows
+during milking sometimes seems to be made from smaller repeating
+rectangular patterns.
+
+Help FJ find the rectangular unit of smallest area that can be
+repetitively tiled to make up the entire milking grid.  Note that the
+dimensions of the small rectangular unit do not necessarily need to
+divide evenly the dimensions of the entire milking grid, as indicated
+in the sample input below.
+
+PROBLEM NAME: mgrid
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: R and C
+
+* Lines 2..R+1: The grid that the cows form, with an uppercase letter
+        denoting each cow's  breed. Each of the R input lines has C
+        characters with no space or other  intervening character.
+
+SAMPLE INPUT (file mgrid.in):
+
+2 5
+ABABA
+ABABA
+
+OUTPUT FORMAT:
+
+* Line 1: The area of the smallest unit from which the grid is formed
+
+SAMPLE OUTPUT (file mgrid.out):
+
+2
+
+OUTPUT DETAILS:
+
+The entire milking grid can be constructed from repetitions of the 
+pattern 'AB'. 
+
+
+**********************************************************************
+
+PROBLEM 3: Popular Cows [Brian Dean, 2003]
+
+Every cow's dream is to become the most popular cow in the herd.  In a 
+herd of N (1 <= N <= 10,000) cows, you are given up to M (1 <= M <= 
+50,000) ordered pairs of the form (A, B) that tell you that cow A thinks 
+that cow B is popular.  Since popularity is transitive, if A thinks B is 
+popular and B thinks C is popular, then A will also think that C is 
+popular, even if this is not explicitly specified by an ordered pair in 
+the input.  Your task is to compute the number of cows that are 
+considered popular by every other cow.
+
+PROBLEM NAME: popular
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers, N and M
+
+* Lines 2..1+M: Two space-separated numbers A and B, meaning that A
+        thinks B is popular.
+
+SAMPLE INPUT (file popular.in):
+
+3 3
+1 2
+2 1
+2 3
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer that is the number of cows who are
+        considered popular by  every other cow.
+
+SAMPLE OUTPUT (file popular.out):
+
+1
+
+OUTPUT DETAILS:
+
+Cow 3 is the only cow of high popularity.
+
+
+**********************************************************************
+
+PROBLEM 4: Beauty Contest [Quynh Tran, 2003]
+
+Bessie, Farmer John's prize cow, has just won first place in a bovine 
+beauty contest, earning the title 'Miss Cow World'.  As a result, Bessie 
+will make a tour of N (2 <= N <= 50,000) farms around the world in order 
+to spread goodwill between farmers and their cows.  For simplicity, the 
+world will be represented as a two-dimensional plane, where each farm is 
+located at a pair of integer coordinates (x,y), each having a value in 
+the range  -10,000 ... 10,000.  No two farms share the same pair of 
+coordinates.
+
+Even though Bessie travels directly in a straight line between pairs of 
+farms, the distance between some farms can be quite large, so she wants to
+bring a suitcase full of hay with her so she has enough food to eat on 
+each leg of her journey.  Since Bessie refills her suitcase at every farm 
+she visits, she wants to determine the maximum possible distance she 
+might need to travel so she knows the size of suitcase she must bring.
+Help Bessie by computing the maximum distance among all pairs of farms.
+
+PROBLEM NAME: msworld
+
+INPUT FORMAT:
+
+* Line 1: A single integer, N
+
+* Lines 2..N+1: Two space-separated integers x and y specifying
+        coordinate of each farm
+
+SAMPLE INPUT (file msworld.in):
+
+4
+0 0
+0 1
+1 1
+1 0
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer that is the squared distance between the
+        pair of farms  that are farthest apart from each other.
+
+SAMPLE OUTPUT (file msworld.out):
+
+2
+
+OUTPUT DETAILS:
+
+Farm 1 (0, 0) and farm 3 (1, 1) have the longest distance (square root of 
+2)
+
+
+**********************************************************************

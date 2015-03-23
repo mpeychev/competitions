@@ -1,0 +1,182 @@
+**********************************************************************
+                           GOLD PROBLEMS
+**********************************************************************
+                  Three problems numbered 1 through 3
+**********************************************************************
+
+Problem 1: Jersey Politics [Coaches, 2004]
+
+In the newest census of Jersey Cows and Holstein Cows, Wisconsin
+cows have earned three stalls in the Barn of Representatives. The
+Jersey Cows currently control the state's redistricting committee.
+They want to partition the state into three equally sized voting
+districts such that the Jersey Cows are guaranteed to win elections
+in at least two of the districts.
+
+Wisconsin has 3*K (1 <= K <= 60) cities of 1,000 cows, numbered
+1..3*K, each with a known number (range: 0..1,000) of Jersey Cows.
+Find a way to partition the state into three districts, each with
+K cities, such that the Jersey Cows have the majority percentage
+in at least two of districts.
+
+All supplied input datasets are solvable.
+
+PROBLEM NAME: jpol
+
+INPUT FORMAT:
+
+* Line 1: A single integer, K
+
+* Lines 2..3*K+1: One integer per line, the number of cows in each
+        city that are Jersey Cows.  Line i+1 contains city i's cow
+        census.
+
+SAMPLE INPUT (file jpol.in):
+
+2
+510
+500
+500
+670
+400
+310
+
+OUTPUT FORMAT:
+
+* Lines 1..K: K lines that are the city numbers in district one, one
+        per line
+
+* Lines K+1..2K: K lines that are the city numbers in district two,
+        one per line
+
+* Lines 2K+1..3K: K lines that are the city numbers in district three,
+        one per line
+
+SAMPLE OUTPUT (file jpol.out):
+
+1
+2
+3
+6
+5
+4
+
+OUTPUT DETAILS:
+
+Other solutions might be possible.  Note that "2 3" would NOT be a
+district won by the Jerseys, as they would be exactly half of the
+cows.
+
+**********************************************************************
+
+Problem 2: Secret Milking Machine [Vladimir Novakovski, 2003]
+
+Farmer John is constructing a new milking machine and wishes to
+keep it secret as long as possible. He has hidden in it deep within
+his farm and needs to be able to get to the machine without being
+detected.  He must make a total of T (1 <= T <= 200) trips to the
+machine during its construction. He has a secret tunnel that he
+uses only for the return trips.
+
+The farm comprises N (2 <= N <= 200) landmarks (numbered 1..N)
+connected by P (1 <= P <= 40,000) bidirectional trails (numbered
+1..P) and with a positive length that does not exceed 1,000,000.
+Multiple trails might join a pair of landmarks.
+
+To minimize his chances of detection, FJ knows he cannot use any
+trail on the farm more than once and that he should try to use the
+shortest trails.
+
+Help FJ get from the barn (landmark 1) to the secret milking machine
+(landmark N) a total of T times.  Find the minimum possible length
+of the longest single trail that he will have to use, subject to the
+constraint that he use no trail more than once. (Note well: The goal
+is to minimize the length of the longest trail, not the sum of the
+trail lengths.)
+
+It is guaranteed that FJ can make all T trips without reusing a trail.
+
+PROBLEM NAME: secret
+
+INPUT FORMAT:
+
+* Line 1: Three space-separated integers: N, P, and T
+
+* Lines 2..P+1: Line i+1 contains three space-separated integers, A_i,
+        B_i, and L_i, indicating that a trail connects landmark A_i to
+        landmark B_i with length L_i.
+
+SAMPLE INPUT (file secret.in):
+
+7 9 2
+1 2 2
+2 3 5
+3 7 5
+1 4 1
+4 3 1
+4 5 7
+5 7 1
+1 6 3
+6 7 3
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer that is the minimum possible length of the
+        longest segment of Farmer John's route.
+
+SAMPLE OUTPUT (file secret.out):
+
+5
+
+OUTPUT DETAILS:
+
+Farmer John can travel trails 1 - 2 - 3 - 7 and 1 - 6 - 7.  None of
+the trails travelled exceeds 5 units in length.  It is impossible
+for Farmer John to travel from 1 to 7 twice without using at least
+one trail of length 5.
+
+**********************************************************************
+
+Problem 3: Aggressive cows [Dutch Championships, via Jan Kuipers, 2004]
+
+Farmer John has built a new long barn, with N (2 <= N <= 100,000)
+stalls. The stalls are located along a straight line at positions
+x1,...,xN (0 <= xi <= 1,000,000,000).
+
+His C (2 <= C <= N) cows don't like this barn layout and become
+aggressive towards each other once put into a stall. To prevent the
+cows from hurting each other, FJ want to assign the cows to the
+stalls, such that the minimum distance between any two of them is
+as large as possible.  What is the largest minimum distance?
+
+PROBLEM NAME: aggr
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: N and C
+
+* Lines 2..N+1: Line i+1 contains an integer stall location, xi
+
+SAMPLE INPUT (file aggr.in):
+
+5 3
+1
+2
+8
+4
+9
+
+OUTPUT FORMAT:
+
+* Line 1: One integer: the largest minimum distance
+
+SAMPLE OUTPUT (file aggr.out):
+
+3
+
+OUTPUT DETAILS:
+
+FJ can put his 3 cows in the stalls at positions 1, 4 and 8, resulting in 
+a minimum distance of 3.
+
+**********************************************************************

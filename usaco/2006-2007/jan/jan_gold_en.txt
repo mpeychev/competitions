@@ -1,0 +1,211 @@
+**********************************************************************
+                           GOLD PROBLEMS
+**********************************************************************
+                  Three problems numbered 1 through 3
+**********************************************************************
+
+Problem 1: Balanced Lineup [Coaches, 2004]
+
+For the daily milking, Farmer John's N cows (1 <= N <= 50,000)
+always line up in the same order. One day Farmer John decides to
+organize a game of Ultimate Frisbee with some of the cows. To keep
+things simple, he will take a contiguous range of cows from the
+milking lineup to play the game. However, for all the cows to have
+fun, they should not differ too much in height.
+
+Farmer John has made a list of Q (1 <= Q <= 180,000) potential
+groups of cows and their heights (1 <= height <= 1,000,000). For
+each group, he wants your help to determine the difference in height
+between the shortest and the tallest cow in the group.
+
+Note: on the largest test case, I/O takes up the majority of the
+runtime.
+
+PROBLEM NAME: lineupg
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers, N and Q.
+
+* Lines 2..N+1: Line i+1 contains a single integer that is the height
+        of cow i
+
+* Lines N+2..N+Q+1: Two integers A and B (1 <= A <= B <= N),
+        representing the range of cows from A to B inclusive.
+
+SAMPLE INPUT (file lineupg.in):
+
+6 3
+1
+7
+3
+4
+2
+5
+1 5
+4 6
+2 2
+
+
+OUTPUT FORMAT:
+
+* Lines 1..Q: Each line contains a single integer that is an answer to
+        an input query and tells the difference in height between the
+        tallest and shortest cow in the input range.
+
+SAMPLE OUTPUT (file lineupg.out):
+
+6
+3
+0
+
+**********************************************************************
+
+Problem 2: Problem Solving [Hal Burch, 2004]
+
+In easier times, Farmer John's cows had no problems. These days,
+though, they have problems, lots of problems; they have P (1 <= P
+<= 300) problems, to be exact. They have quit providing milk and
+have taken regular jobs like all other good citizens.  In fact, on
+a normal month they make M (1 <= M <= 1000) money.
+
+Their problems, however, are so complex they must hire consultants
+to solve them. Consultants are not free, but they are competent:
+consultants can solve any problem in a single month. Each consultant
+demands two payments: one in advance (1 <= payment <= M) to be paid
+at the start of the month problem-solving is commenced and one more
+payment at the start of the month after the problem is solved (1
+<= payment <= M). Thus, each month the cows can spend the money
+earned during the previous month to pay for consultants. Cows are
+spendthrifts: they can never save any money from month-to-month;
+money not used is wasted on cow candy.
+
+Since the problems to be solved depend on each other, they must be
+solved mostly in order. For example, problem 3 must be solved
+before problem 4 or during the same month as problem 4.
+
+Determine the number of months it takes to solve all of the cows'
+problems and pay for the solutions.
+
+PROBLEM NAME: psolve
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: M and P.
+
+* Lines 2..P+1: Line i+1 describes problem i with two space-separated
+        integers: B_i and A_i. B_i is the payment to the consult
+        BEFORE the problem is solved; A_i is the payment to the
+        consult AFTER the problem is solved.
+
+SAMPLE INPUT (file psolve.in):
+
+100 5
+40 20
+60 20
+30 50
+30 50
+40 40
+
+
+INPUT DETAILS:
+
+The cows make 100 money each month. They have 5 problems to solve,
+which cost 40, 60, 30, 30, and 40 in advance to solve and then 20,
+20, 50, 50, and 40 at the beginning of the month after the problems
+are solved.
+
+OUTPUT FORMAT:
+
+* Line 1: The number of months it takes to solve and pay for all the
+        cows' problems.
+
+SAMPLE OUTPUT (file psolve.out):
+
+6
+
+OUTPUT DETAILS:
+
++------+-------+--------+---------+---------+--------+
+|      | Avail | Probs  | Before  |  After  |  Candy |
+|Month | Money | Solved | Payment | Payment |  Money |
++------+-------+--------+---------+---------+--------+
+|  1   |  0    | -none- |    0    |    0    |     0  |
+|  2   | 100   |  1, 2  | 40+60   |    0    |     0  |
+|  3   | 100   |  3, 4  | 30+30   |  20+20  |     0  |
+|  4   | 100   | -none- |    0    |  50+50  |     0  |
+|  5   | 100   |   5    |   40    |    0    |    60  |
+|  6   | 100   | -none- |    0    |   40    |    60  | 
++------+-------+--------+---------+---------+--------+
+
+**********************************************************************
+
+Problem 3: Cow School [Jacob Steinhardt, 2006]
+
+Bessy is going to school and doing well. She has taken N (1 <= N
+<= 5000 -- except one case where 1 <= N <= 50,000) tests and recorded
+the scores (T_i points out of P_i points for test i; 0 <= T_i <=
+P_i < 40,000; 0 < P_i) as this task's input.
+
+Her teacher will drop the D tests with the lowest percentage (T_i/P_i)
+before calculating Bessie's final grade (which is the sum of the
+remaining test score points over the sum of the remaining total
+test points). Bessy is good at math and quickly realizes that this
+does not benefit her as much as it might.
+
+To prove her point, Bessy wants to find all values of D for which
+she could have ended up with a higher grade by choosing to drop
+different tests than the teacher would have. Help her by finding
+and printing all values of D for which this is possible.
+
+Bessy has noted that, amazingly, she has never scored the same
+percentage on two different tests.
+
+PROBLEM NAME: schul
+
+INPUT FORMAT:
+
+* Line 1: A single integer, N
+
+* Lines 2..N+1: Line i+1 contains two space-separated integers: T_i
+        and P_i
+
+SAMPLE INPUT (file schul.in):
+
+5
+1 2
+5 9
+3 8
+4 10
+1 3
+
+
+INPUT DETAILS:
+
+Bessy has taken 5 tests so far and has scores of 1/2, 5/9, 3/8, 4/10, and 1/3.
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer K (0 <= K <= N) that is the number of
+        values of D for which Bessy could have ended up with a higher
+        grade by dropping a different set of D tests than the teacher.
+
+* Lines 2..K+1: The values of D for which this is true, in ascending
+        numerical order.
+
+SAMPLE OUTPUT (file schul.out):
+
+2
+1
+2
+
+OUTPUT DETAILS:
+
+For D = 1, dropping 1/3 leads to a final grade of 13/29. A higher
+final grade of 11/24 can be achieved if Bessy drops 3/8.
+
+For D = 2, dropping 1/3 and 3/8 lead to a final grade of 10/21. A
+higher final grade of 7/14 can be achieved if Bessy drops 3/8 and
+4/10.
+
+**********************************************************************

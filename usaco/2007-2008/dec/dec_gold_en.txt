@@ -1,0 +1,225 @@
+**********************************************************************
+GOLD PROBLEMS
+**********************************************************************
+Three problems numbered 1 through 3
+**********************************************************************
+
+Problem 1: Sightseeing Cows [Reid Barton, 2007]
+
+Farmer John has decided to reward his cows for their hard work by
+taking them on a tour of the big city! The cows must decide how
+best to spend their free time.
+
+Fortunately, they have a detailed city map showing the L (2 <= L
+<= 1000) major landmarks (conveniently numbered 1.. L) and the P
+(2 <= P <= 5000) unidirectional cow paths that join them. Farmer
+John will drive the cows to a starting landmark of their choice,
+from which they will walk along the cow paths to a series of other
+landmarks, ending back at their starting landmark where Farmer John
+will pick them up and take them back to the farm. Because space
+in the city is at a premium, the cow paths are very narrow and so
+travel along each cow path is only allowed in one fixed direction.
+
+While the cows may spend as much time as they like in the city,
+they do tend to get bored easily. Visiting each new landmark is
+fun, but walking between them takes time. The cows know the exact
+fun values F_i (1 <= F_i <= 1000) for each landmark i.
+
+The cows also know about the cowpaths. Cowpath i connects landmark
+L1_i to L2_i (in the direction L1_i -> L2_i) and requires time T_i
+(1 <= T_i <= 1000) to traverse.
+
+In order to have the best possible day off, the cows want to maximize
+the average fun value per unit time of their trip. Of course, the
+landmarks are only fun the first time they are visited; the cows
+may pass through the landmark more than once, but they do not
+perceive its fun value again. Furthermore, Farmer John is making
+the cows visit at least two landmarks, so that they get some exercise
+during their day off.
+
+Help the cows find the maximum fun value per unit time that they
+can achieve.
+
+PROBLEM NAME: sightsee
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: L and P
+
+* Lines 2..L+1: Line i+1 contains a single one integer: F_i
+
+* Lines L+2..L+P+1: Line L+i+1 describes cow path i with three
+space-separated integers: L1_i, L2_i, and T_i
+
+SAMPLE INPUT (file sightsee.in):
+
+5 7
+30
+10
+10
+5
+10
+1 2 3
+2 3 2
+3 4 5
+3 5 2
+4 5 5
+5 1 3
+5 2 2
+
+
+OUTPUT FORMAT:
+
+* Line 1: A single number given to two decimal places (do not perform
+explicit rounding), the maximum possible average fun per unit
+time, or 0 if the cows cannot plan any trip at all in
+accordance with the above rules.
+
+SAMPLE OUTPUT (file sightsee.out):
+
+6.00
+
+OUTPUT DETAILS:
+
+The trip 1 -> 2 -> 3 -> 5 -> 1 has a total fun value of 60 and a
+length of 10 units for an average fun per unit time of 6. The trip
+2 -> 3 -> 5 -> 2 only has an average fun per unit time of 30/6 =
+5, and any trip involving landmark 4 has an average fun per unit
+time of less than 4.
+
+**********************************************************************
+
+Problem 2: Gourmet Grazers [Alex Schwendner, 2007]
+
+Like so many others, the cows have developed very haughty tastes
+and will no longer graze on just any grass. Instead, Farmer John
+must purchase gourmet organic grass at the Green Grass Grocers store
+for each of his N (1 <= N <= 100,000) cows.
+
+Each cow_i demands grass of price at least A_i (1 <= A_i <=
+1,000,000,000) and with a greenness score at least B_i (1 <= B_i
+<= 1,000,000,000). The GGG store has M (1 <= M <= 100,000) different
+types of grass available, each with a price C_i (1 <= C_i <=
+1,000,000,000) and a greenness score of D_i (1 <= D_i <= 1,000,000,000).
+Of course, no cow would sacrifice her individuality, so no two cows
+can have the same kind of grass.
+
+Help Farmer John satisfy the cows' expensive gourmet tastes while
+spending as little money as is necessary.
+
+PROBLEM NAME: gourmet
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: N and M.
+
+* Lines 2..N+1: Line i+1 contains two space-separated integers: A_i
+and B_i
+
+* Lines N+2..N+M+1: Line i+N+1 contains two space-separated integers:
+C_i and D_i
+
+SAMPLE INPUT (file gourmet.in):
+
+4 7
+1 1
+2 3
+1 4
+4 2
+3 2
+2 1
+4 3
+5 2
+5 4
+2 6
+4 4
+
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer which is the minimum cost to satisfy all
+the cows. If that is not possible, output -1.
+
+SAMPLE OUTPUT (file gourmet.out):
+
+12
+
+OUTPUT DETAILS:
+
+Cow 1 eats grass 2 at cost 2, cow 2 eats grass 3 at cost 4, cow 3 eats
+grass 6 at cost 2, and cow 4 eats grass 7 at cost 4, for a total cost of 12.
+
+**********************************************************************
+
+Problem 3: Best Cow Line, Gold [Christos Tzamos, 2007]
+
+FJ is about to take his N (1 <= N <= 30,000) cows to the annual
+"Farmer of the Year" competition. In this contest every farmer
+arranges his cows in a line and herds them past the judges.
+
+The contest organizers adopted a new registration scheme this year:
+simply register the initial letter of every cow in the order they
+will appear (e.g., If FJ takes Bessie, Sylvia, and Dora in that
+order, he just registers BSD). After the registration phase ends,
+every group is judged in increasing lexicographic order (i.e.,
+alphabetical order) according to the string of the initials of the
+cows' names.
+
+FJ is very busy this year and has to hurry back to his farm, so he
+wants to be judged as early as possible. He decides to rearrange
+his cows, who have already lined up, before registering them.
+
+FJ marks a location for a new line of the competing cows. He then
+proceeds to marshal the cows from the old line to the new one by
+repeatedly sending either the first or last cow in the (remainder
+of the) original line to the end of the new line. When he's finished,
+FJ takes his cows for registration in this new order.
+
+Given the initial order of his cows, determine the least lexicographic
+string of initials he can make this way.
+
+PROBLEM NAME: bclgold
+
+INPUT FORMAT:
+
+* Line 1: A single integer: N
+
+* Lines 2..N+1: Line i+1 contains a single initial ('A'..'Z') of the
+cow in the ith position in the original line
+
+SAMPLE INPUT (file bclgold.in):
+
+6
+A
+C
+D
+B
+C
+B
+
+INPUT DETAILS:
+
+FJ has 6 cows in this order: ACDBCB
+
+OUTPUT FORMAT:
+
+The least lexicographic string he can make. Every line (except perhaps
+the last one) contains the initials of 80 cows ('A'..'Z') in the new
+line.
+
+SAMPLE OUTPUT (file bclgold.out):
+
+ABCBCD
+
+OUTPUT DETAILS:
+
+Step Original New
+#1 ACDBCB
+#2 CDBCB A
+#3 CDBC AB
+#4 CDB ABC
+#5 CD ABCB
+#6 D ABCBC
+#7 ABCBCD
+
+**********************************************************************

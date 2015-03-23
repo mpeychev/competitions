@@ -1,0 +1,213 @@
+Problem 1: Above the Median [Brian Dean]
+
+Farmer John has lined up his N (1 <= N <= 100,000) cows in a row to measure
+their heights; cow i has height H_i (1 <= H_i <= 1,000,000,000)
+nanometers--FJ believes in precise measurements! He wants to take a picture
+of some contiguous subsequence of the cows to submit to a bovine
+photography contest at the county fair.  
+
+The fair has a very strange rule about all submitted photos: a photograph
+is only valid to submit if it depicts a group of cows whose median height
+is at least a certain threshold X (1 <= X <= 1,000,000,000).
+
+For purposes of this problem, we define the median of an array A[0...K] to
+be A[ceiling(K/2)] after A is sorted, where ceiling(K/2) gives K/2 rounded 
+up to the nearest integer (or K/2 itself, it K/2 is an integer to begin
+with). For example the median of {7, 3, 2, 6} is 6, and the median of {5,
+4, 8} is 5.
+
+Please help FJ count the number of different contiguous subsequences of his
+cows that he could potentially submit to the photography contest.
+
+PROBLEM NAME: median
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: N and X.
+
+* Lines 2..N+1: Line i+1 contains the single integer H_i.
+
+SAMPLE INPUT (file median.in):
+
+4 6
+10
+5
+6
+2
+
+INPUT DETAILS:
+
+FJ's four cows have heights 10, 5, 6, 2. We want to know how many
+contiguous subsequences have median at least 6.
+
+OUTPUT FORMAT:
+
+* Line 1: The number of subsequences of FJ's cows that have median at
+        least X. Note this may not fit into a 32-bit integer.
+
+SAMPLE OUTPUT (file median.out):
+
+7
+
+OUTPUT DETAILS:
+
+There are 10 possible contiguous subsequences to consider. Of these, only 7
+have median at least 6. They are {10}, {6}, {10, 5}, {5, 6}, {6, 2}, {10,
+5, 6}, {10, 5, 6, 2}.
+
+
+
+Problem 2: Binary Sudoku [Brian Dean]
+
+Farmer John's cows like to play an interesting variant of the popular game
+of "Sudoku".  Their version involves a 9 x 9 grid of 3 x 3 subgrids, just
+like regular Sudoku.  The cows' version, however, uses only binary digits:
+
+000 000 000
+001 000 100
+000 000 000
+
+000 110 000
+000 111 000
+000 000 000
+
+000 000 000
+000 000 000
+000 000 000
+
+The goal of binary Sudoku is to toggle as few bits as possible so that each
+of the nine rows, each of the nine columns, and each of the nine 3 x 3
+subgrids has even parity (i.e., contains an even number of 1s).  For the
+example above, a set of 3 toggles gives a valid solution:
+
+000 000 000
+001 000 100
+001 000 100
+
+000 110 000
+000 110 000
+000 000 000
+
+000 000 000
+000 000 000
+000 000 000
+
+Given the initial state of a binary Sudoku board, please help the cows
+determine the minimum number of toggles required to solve it.
+
+PROBLEM NAME: bsudoku
+
+INPUT FORMAT:
+
+* Lines 1..9: Each line contains a 9-digit binary string corresponding
+        to one row of the initial game board.
+
+SAMPLE INPUT (file bsudoku.in):
+
+000000000
+001000100
+000000000
+000110000
+000111000
+000000000
+000000000
+000000000
+000000000
+
+INPUT DETAILS:
+
+The Sudoku board in the sample input is the same as in the problem text above.
+
+OUTPUT FORMAT:
+
+* Line 1: The minimum number of toggles required to make every row,
+        column, and subgrid have even parity.
+
+SAMPLE OUTPUT (file bsudoku.out):
+
+3
+
+OUTPUT DETAILS:
+
+Three toggles suffice to solve the puzzle.
+
+
+
+Problem 3: Cow Steeplechase [Brian Dean]
+
+Farmer John has a brilliant idea for the next great spectator sport: Cow
+Steeplechase! As everyone knows, regular steeplechase involves a group of
+horses that race around a course filled with obstacles they must jump over.
+FJ figures the same contest should work with highly-trained cows, as long
+as the obstacles are made short enough.
+
+In order to design his course, FJ makes a diagram of all the N (1 <= N <=
+250) possible obstacles he could potentially build. Each one is represented
+by a line segment in the 2D plane that is parallel to the horizontal or
+vertical axis. Obstacle i has distinct endpoints (X1_i, Y1_i) and (X2_i,
+Y2_i) (1 <= X1_i, Y1_i, X2_i, Y2_i <= 1,000,000,000). An example is as follows:
+
+   --+-------   
+-----+-----
+  ---+---     |
+     |     |  |
+   --+-----+--+-   |
+     |     |  |  | |
+     |   --+--+--+-+-
+           |  |  | |
+              |
+
+FJ would like to build as many of these obstacles as possible, subject to
+the constraint that no two of them intersect. Starting with the diagram
+above, FJ can build 7 obstacles:
+
+   ----------   
+-----------
+  -------     |
+           |  |
+           |  |    |
+           |  |  | |
+           |  |  | |
+           |  |  | |
+              |
+
+Two segments are said to intersect if they share any point in common, even
+an endpoint of one or both of the segments.  FJ is certain that no two
+horizontal segments in the original input diagram will intersect, and that
+similarly no two vertical segments in the input diagram will intersect.
+
+Please help FJ determine the maximum number of obstacles he can build.
+
+PROBLEM NAME: steeple
+
+INPUT FORMAT:
+
+* Line 1: A single integer: N.
+
+* Lines 2..N+1: Line i+1 contains four space-separated integers
+        representing an obstacle: X1_i, Y1_i, X2_i, and Y2_i.
+
+SAMPLE INPUT (file steeple.in):
+
+3
+4 5 10 5
+6 2 6 12
+8 3 8 5
+
+INPUT DETAILS:
+
+There are three potential obstacles. The first is a horizontal segment
+connecting (4, 5) to (10, 5); the second and third are vertical segments
+connecting (6, 2) to (6, 12) and (8, 3) to (8, 5).
+
+OUTPUT FORMAT:
+
+* Line 1: The maximum number of non-crossing segments FJ can choose.
+
+SAMPLE OUTPUT (file steeple.out):
+
+2
+
+OUTPUT DETAILS:
+
+The optimal solution is to choose both vertical segments.

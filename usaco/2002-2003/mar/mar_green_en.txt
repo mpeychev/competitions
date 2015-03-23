@@ -1,0 +1,196 @@
+**********************************************************************
+                           GREEN PROBLEMS
+**********************************************************************
+                  Three problems numbered 1 through 3
+**********************************************************************
+
+PROBLEM 1: TwoFour [Romanian Olympiad, via Stroe, 2002]
+
+Bessie has a new two-person game: TwoFour. She has N (3 <= N <= 30)
+piles, each with a number of balls (0 <= nballs <= 4).  The total
+number of balls is 2*N.
+
+To play, the players alternate taking turns, each of which comprises
+a single valid move.  A valid move consists of the following actions:
+
+  * First, the player chooses two different piles.
+
+  * Second, she takes a single ball from one pile and moves it to the
+    other pile. She can do this only if the number of balls in the
+    second pile (including the new ball) is not greater than the
+    number of balls remaining in the first pile after the ball is
+    removed.
+
+The game ends when no more moves can be made. In fact, at the end of
+the game, every pile will contain exactly two balls.
+
+The winner of the game is the player who 'owns' most piles.  Ties are
+possible.  A player 'owns' a pile if the pile has two balls and this
+resulted from the player's most recent move to or form that pile.
+Consider these examples:
+
+    * If a player moves a ball from a pile of four balls to a pile of
+      one ball, then she owns the second pile (with two balls).
+
+    * If a player moves a ball from a pile of three balls to a pile
+      of zero balls, then she owns the first pile, now with two balls.
+
+    * If a player moves a ball from a pile of three balls to a pile
+      of one ball, then she owns both piles (both with two balls).
+
+Ownership can change.  Consider that a player owns a pile with two
+balls. If the other chooses a pile with four balls and moves a ball
+to the pile with two, then the pile is no longer owned by anyone.
+
+If, at the beginning of the game, some piles have two balls, then the
+piles are equally distributed among the two players with any extra
+pile being owned by player two.
+
+Player 1 is the one who makes the first move.
+
+Your program must decide, for an initial game state, who will be the
+winner or if the game ends in a tie when both players play as well as
+they can.  Your program will be presented with G (1 <= G <= 1000) game
+states.
+
+Use no more than 1.00 Megabytes of memory for this problem.
+
+PROBLEM NAME: twofour
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: N and G.
+
+* Lines 2..G+1: Each line contains N space-separated integers
+        describing a game.  The first integer is the number of  balls
+        in pile 1, the second integer is the number of balls in pile
+        2, and so on. Line 2 describes game 1, line 3 describes game
+        2, and so on.  Your program should compute the winner for this
+        particular game.
+
+SAMPLE INPUT (file twofour.in):
+
+5 4
+0 3 4 1 2
+2 2 2 2 2
+1 1 2 2 4
+4 3 2 1 0
+
+OUTPUT FORMAT:
+
+* Lines 1..G: The outcome of each game.  Line 1 gives the outcome of
+	game 1, and so on.  The outcome is a single integer: 1 if the
+	first player wins, 2 if the second player wins, and 0 if the
+	game is a tie.
+
+SAMPLE OUTPUT (file twofour.out):
+
+1
+2
+1
+1
+
+**********************************************************************
+
+PROBLEM 2: Best Cow Fences [Brian Dean, 2003]
+
+Farmer John's farm consists of a long row of N (1 <= N <= 100,000)
+fields.  Each field contains a certain number of cows, 1 <= ncows <=
+2000.
+
+FJ wants to build a fence around a contiguous group of these fields
+in order to maximize the average number of cows per field within that
+block. The block must contain at least F (1 <= F <= N) fields, where
+F given as input.
+
+Calculate the fence placement that maximizes the average, given the
+constraint.  
+
+PROBLEM NAME: cowfnc
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers, N and F.
+
+* Lines 2..N+1: Each line contains a single integer, the number of
+        cows in a field. Line 2 gives the number of cows in field 1,
+        line 3 gives the number in field 2, and so on.
+
+SAMPLE INPUT (file cowfnc.in):
+
+10 6
+6 
+4
+2
+10
+3
+8
+5
+9
+4
+1
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer that is 1000 times the maximal average.
+	Do not perform rounding, just print the integer that is
+	1000*ncows/nfields.
+
+SAMPLE OUTPUT (file cowfnc.out):
+
+6500
+
+**********************************************************************
+
+PROBLEM 3: Cornfields [Brian Dean, 2003]
+
+FJ has decided to grow his own corn hybrid in order to help the cows
+make the best possible milk.  To that end, he's looking to build the
+cornfield on the flattest piece of land he can find.
+
+FJ has, at great expense, surveyed his square farm of N x N hectares
+(1 <= N <= 250). Each hectare has an integer elevation (0 <= elevation
+<= 250) associated with it.
+
+FJ will present your program with the elevations and a set of K (1
+<= K <= 100,000) queries of the form "in this B x B submatrix, what
+is the maximum and minimum elevation?".  The integer B (1 <= B <= N)
+is the size of one edge of the square cornfield and is a constant for
+every inquiry. Help FJ find the best place to put his cornfield.
+
+PROBLEM NAME: cornfld
+
+INPUT FORMAT:
+
+* Line 1: Three space-separated integers: N, B, and K.
+
+* Lines 2..N+1: Each line contains N space-separated integers.  Line 2
+        represents row 1; line 3 represents row 2, etc.  The first
+        integer on each line represents column 1; the second integer
+        represents column 2; etc.
+
+* Lines N+2..N+K+1: Each line contains two space-separated integers
+        representing a query. The first integer is the top row of the
+        query; the second integer is the left column of the query. 
+        The integers are in the range 1..N-B+1.
+
+SAMPLE INPUT (file cornfld.in):
+
+5 3 1
+5 1 2 6 3
+1 3 5 2 7
+7 2 4 6 1
+9 9 8 6 5
+0 6 9 3 9
+1 2
+
+OUTPUT FORMAT:
+
+* Lines 1..K: A single integer per line representing the difference
+        between the max and the min in each query.
+
+SAMPLE OUTPUT (file cornfld.out):
+
+5
+
+**********************************************************************
