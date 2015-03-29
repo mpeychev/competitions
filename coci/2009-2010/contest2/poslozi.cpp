@@ -1,5 +1,5 @@
 /*
-  Source: coci - 2009/2008 - contest2
+  Source: coci - 2009/2010 - contest2
   Task: No 5 - poslozi
   KeyW: A* heuristics
 */
