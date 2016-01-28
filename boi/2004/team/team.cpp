@@ -4,7 +4,6 @@
   KeyW: Reshavane na zadachi s pylni dvoichni dyrveta (index-ni dyrveta).
         Update & Query sistemi s cena na operacia LogN ili LogN*LogN.
 */
-// To check - Z-training
 #include <stdio.h>
 #include <iostream>
 
