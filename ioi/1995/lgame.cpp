@@ -143,8 +143,8 @@ void findSolutions() {
 
 int main()
 {
-    freopen("lgame.in", "r", stdin);
-    freopen("lgame.out", "w", stdout);
+    // freopen("lgame.in", "r", stdin);
+    // freopen("lgame.out", "w", stdout);
 
     setValues();
 
