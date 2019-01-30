@@ -102,8 +102,8 @@ void solve() {
 
 int main()
 {
-    freopen("job.in", "r", stdin);
-    freopen("job.out", "w", stdout);
+    // freopen("job.in", "r", stdin);
+    // freopen("job.out", "w", stdout);
 
     read();
     solve();
